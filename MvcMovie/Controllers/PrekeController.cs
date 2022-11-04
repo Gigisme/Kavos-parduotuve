@@ -6,9 +6,22 @@ using System.Threading.Tasks;
 
 namespace MvcMovie.Controllers
 {
-    public class Preke : Controller
+    public class PrekeController : Controller
     {
+        public IActionResult Insert()
+        {
+            return View();
+        }
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult Delete()
+        {
+            return View();
+        }
+        
+        public IActionResult Update()
         {
             return View();
         }
