@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcMovie.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +15,34 @@ namespace MvcMovie.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            List<Preke> prekes = new List<Preke>();
+            Preke preke1 = new Preke() {
+                Name = "Juoda kava",
+                Description = "Juodos kavos aprašymas",
+                Price = 10,
+                Image = "https://th.bing.com/th/id/OIP.KFKc9jvI80ikP11fFkS3OAHaFL?pid=ImgDet&rs=1"
+            };
+
+            Preke preke2 = new Preke()
+            {
+                Name = "Šalta kava",
+                Description = "Šaltos kavos aprašymas",
+                Price = 10,
+                Image = "https://th.bing.com/th/id/R.4b4588b4556198eefea8ce8dedcb300d?rik=t26ceZLoBPtjHA&pid=ImgRaw&r=0"
+            };
+            prekes.Add(preke1);
+            prekes.Add(preke2);
+
+            return View(prekes);
         }
         public IActionResult Delete()
         {
             return View();
         }
         
-        public IActionResult Update()
+        public IActionResult Update(Preke preke)
         {
-            return View();
+            return View(preke);
         }
     }
 }
