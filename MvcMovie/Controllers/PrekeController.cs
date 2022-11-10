@@ -17,6 +17,7 @@ namespace MvcMovie.Controllers
         {
             List<Preke> prekes = new List<Preke>();
             Preke preke1 = new Preke() {
+                Id = 1,
                 Name = "Juoda kava",
                 Description = "Juodos kavos aprašymas",
                 Price = 10,
@@ -25,6 +26,7 @@ namespace MvcMovie.Controllers
 
             Preke preke2 = new Preke()
             {
+                Id = 2,
                 Name = "Šalta kava",
                 Description = "Šaltos kavos aprašymas",
                 Price = 10,
@@ -35,6 +37,10 @@ namespace MvcMovie.Controllers
 
             return View(prekes);
         }
+        public IActionResult Details()
+        {
+            return View();
+        }
         public IActionResult Delete()
         {
             return View();
@@ -44,5 +50,11 @@ namespace MvcMovie.Controllers
         {
             return View(preke);
         }
+        public IActionResult BuyAd()
+        {
+            return View();
+        }
+
+
     }
 }
