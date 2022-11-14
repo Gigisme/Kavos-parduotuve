@@ -33,5 +33,15 @@ namespace MvcMovie.Controllers
 
             return View(uzsakymas);
         }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        public IActionResult Rate()
+        {
+            return View();
+        }
     }
 }

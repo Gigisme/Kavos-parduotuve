@@ -19,6 +19,8 @@
         <div class="row pt-4">
             <div class="col-6">
                 <h2 class="text-primary">Užsakymų sąrašas</h2>
+                <a asp-action="Update" asp-controller="Uzsakymas" class="btn btn-primary">Priskirti naują užsakymą</a>
+                <a asp-action="FilterOrders"  class="btn btn-primary">Pateikti tik priskirtus užsakymus</a>
             </div>
         </div>
 
@@ -63,10 +65,8 @@
                                 @Html.DisplayFor(m => item.Rated)
                             </td>
 				            <td>
-				            	<a href="@Url.Action("Status", new { id = item.Id })" class="btn btn-primary">
-                                    <i class="fa-solid fa-pen-to-square"></i> Keisti statusą</a>
-				            	<a href="@Url.Action("Rate", new { id = item.Id })" class="btn btn-primary">
-                                    <i class="fa-solid fa-trash"></i> Įvertinti</a>
+				            	<a asp-action="Edit" class="btn btn-primary">Keisti statusą</a>
+				            	<a asp-action="Rate" class="btn btn-primary">Įvertinti</a>
 				            </td>
 			            </tr>
                     }
