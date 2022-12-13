@@ -15,10 +15,10 @@
         #super {
             background-color: cornsilk;
         }
-        #premium{
+
+        #premium {
             background-color: rgb(255, 255, 240);
         }
-        
     </style>
 </head>
 
@@ -30,21 +30,9 @@
             </div>
             <div class="col-6 text-right">
 
-                <form method="post" asp-controller="Preke" asp-action="Filtered">
-                    <label>Nuo:</label>
-                    <input name="input1" type="text" />
-                    <label>Iki:</label>
-                    <input name="input2" type="text" />
-                    <button type="submit" class="btn btn-primary" style="width:150px">Filtruoti</button>
-                </form>
+      
 
 
-            </div>
-
-            <div>
-                <a asp-action="Insert" class="btn btn-primary">
-                    <i class="fa-solid fa-plus"></i> &nbsp; Įkelti naują prekę
-                </a>
             </div>
         </div>
 
@@ -57,17 +45,15 @@
                     <tr>
                         <th>
                             Pavadinimas
+                            @*@Html.DisplayNameFor(model => model[0].Id)*@
                         </th>
                         <th>
-                            Kaina
+                            Kain
+                            @*@Html.DisplayNameFor(model => model[0].Name)*@
                         </th>
-                        <th>
+                        <th></th>
+                        <th></th>
 
-                        </th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -90,17 +76,8 @@
                                 </svg>
                                 @Html.DisplayFor(model => item.Ad)
                             </td>
-                            <td id="super">
+                            <td id="premium">
                                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark " style="height:40px">Peržiūrėti prekę</a>
-                            </td>
-                            <td id="super">
-                                <a asp-controller="Preke" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Ištrinti</a>
-                            </td>
-                            <td id="super">
-                                <a asp-action="Update" asp-controller="Preke" asp-route-id="@item.Id" class="btn btn-primary">Redaguoti</a>
-                            </td>
-                            <td id="super">
-                                <a disabled  class="btn btn-warning form-control" style="height:40px">Pirkti reklamą</a>
                             </td>
                         }
                         else if (item.Ad.Equals("PREMIUM"))
@@ -122,15 +99,7 @@
                             <td id="premium">
                                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark " style="height:40px">Peržiūrėti prekę</a>
                             </td>
-                            <td id="premium">
-                                <a asp-controller="Preke" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Ištrinti</a>
-                            </td>
-                            <td id="premium">
-                                <a asp-action="Update" asp-controller="Preke" asp-route-id="@item.Id" class="btn btn-primary">Redaguoti</a>
-                            </td>
-                            <td id="premium">
-                                <a disabled  class="btn btn-warning form-control" style="height:40px">Pirkti reklamą</a>
-                            </td>
+
                         }
                         else if (item.Ad.Equals("EKONOMIŠKA"))
                         {
@@ -146,17 +115,8 @@
 
                                 @Html.DisplayFor(model => item.Ad)
                             </td>
-                            <td id="eko">
+                            <td id="premium">
                                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark " style="height:40px">Peržiūrėti prekę</a>
-                            </td>
-                            <td id="eko">
-                                <a asp-controller="Preke" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Ištrinti</a>
-                            </td>
-                            <td id="eko">
-                                <a asp-action="Update" asp-controller="Preke" asp-route-id="@item.Id" class="btn btn-primary">Redaguoti</a>
-                            </td>
-                            <td id="eko">
-                                <a disabled  class="btn btn-warning form-control" style="height:40px">Pirkti reklamą</a>
                             </td>
                         }
                         else
@@ -173,17 +133,8 @@
 
                                 @Html.DisplayFor(model => item.Ad)
                             </td>
-                            <td id="eko">
+                            <td id="premium">
                                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark " style="height:40px">Peržiūrėti prekę</a>
-                            </td>
-                            <td id="eko">
-                                <a asp-controller="Preke" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Ištrinti</a>
-                            </td>
-                            <td id="eko">
-                                <a asp-action="Update" asp-controller="Preke" asp-route-id="@item.Id" class="btn btn-primary">Redaguoti</a>
-                            </td>
-                            <td id="eko">
-                                <a asp-action="BuyAd" asp-route-id="@item.Id" class="btn btn-warning form-control" style="height:40px">Pirkti reklamą</a>
                             </td>
                         }
 

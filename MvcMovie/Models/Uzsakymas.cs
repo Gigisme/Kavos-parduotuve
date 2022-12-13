@@ -12,7 +12,7 @@ namespace MvcMovie.Models
         public DateTime Date { get; set; }
         [Range(1, int.MaxValue)]
         public double Price { get; set; }
-        public string Status { get; set; }
+        public string? Status { get; set; } = null;
         public bool Rated { get; set; }
     }
 }

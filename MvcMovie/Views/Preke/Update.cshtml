@@ -1,15 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
-</head>
+﻿@model MvcMovie.Models.Preke
 
 <body>
 
@@ -24,7 +13,7 @@
                     Pavadinimas
                 </div>
                 <div class="col-8">
-                    <input class="form-control" />
+                    <input required oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Reikalingas pavadinimas')" class="form-control" name="Name" value="@Model.Name"/>
                 </div>
 
             </div>
@@ -33,7 +22,7 @@
                     Aprašymas
                 </div>
                 <div class="col-8">
-                    <input class="form-control" />
+                    <input required oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Reikalingas aprašymas')" class="form-control" name="Description" value="@Model.Description"/>
 
                 </div>
             </div>
@@ -42,7 +31,7 @@
                     Kaina
                 </div>
                 <div class="col-8">
-                    <input class="form-control" />
+                    <input required oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Reikalinga kaina')" class="form-control" name="Price" value="@Model.Price"/>
 
                 </div>
             </div>
@@ -52,25 +41,20 @@
                     Svoris
                 </div>
                 <div class="col-8">
-                    <input class="form-control" />
+                    <input required oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Reikalingas svoris')" class="form-control" name="Weight" value="@Model.Weight" />
 
                 </div>
             </div>
 
             <div class="form-group row">
-                <div class="col-4">
-                    Paveikslėlis
-                </div>
-                <div class="col-8">
-                    <input type="file" name="Paveikslėlis" id="uploadBox" class="form-control" />
-                </div>
                 <button type="submit" class="btn btn-primary" style="width:150px">Redaguoti</button>
                 <a asp-controller="Preke" asp-action="Index" class="btn btn-secondary" style="width:150px">Atgal</a>
             </div>
-</form>
+        </div>
+    </form>
 
 
 
 </body>
 
-</html>
+

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model MvcMovie.Models.Preke
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,41 +15,48 @@
 
 <body>
 
-    <form method="post">
+    <form method="post" asp-action="BuyAd" asp-controller="Preke">
+
+        <h2>Reklamos pirkimas prekei: @Model.Name</h2>
         <div class="border p-3 mt-4">
             <div class="row pb-2">
                 <h2 class="text-primary">Reklamos pirkimas</h2>
                 <hr />
             </div>
             <h4>Pasirinkite reklamos tipą:</h4>
+            <input type="hidden" name="Fk_product" value="@Model.Id"/>
+            <input id="priceStore" type="hidden" name="Price" value=""/>
+            <select id="levelSelect" name="Level" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
 
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                
-                <option value="1">Ekonomiška</option>
+                <option value="1" selected>Ekonomiška</option>
                 <option value="2">Premium</option>
                 <option value="3">Super Premium</option>
             </select>
 
             <h4>Pasirinkite kuriam laikui bus taikoma reklama:</h4>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <select id="durationSelect" class="form-select form-select-lg mb-3" name="ToStr" aria-label=".form-select-lg example">
 
-                <option value="1">1 savaitė</option>
+                <option value="1" selected>1 savaitė</option>
                 <option value="2">2 savaitės</option>
                 <option value="3">3 savaitės</option>
-                <option value="3">4 savaitės</option>
+                <option value="4">4 savaitės</option>
             </select>
 
 
             <div class="form-group row">
 
                 <button type="submit" class="btn btn-primary" style="width:150px">Pirkti reklamą</button>
-                
+
                 <a asp-action="Index" class="btn btn-secondary" style="width:150px">Atgal</a>
             </div>
-</form>
+            <div style="font-weight:700; font-size: 1.5em"> Galutinė kaina: &nbsp;
+                <div id="priceDisplay"></div>
+            </div>
+        </div>
+    </form>
 
 
 
 </body>
-
+<script src="~/js/priceCalculator.js"></script>
 </html>

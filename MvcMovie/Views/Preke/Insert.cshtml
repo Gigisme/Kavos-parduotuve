@@ -13,7 +13,7 @@
 
 <body>
 
-    <form method="post">
+    <form method="post" asp-action="Insert" asp-controller="Preke" id="pictureForm" enctype="multipart/form-data">
         <div class="border p-3 mt-4">
             <div class="row pb-2">
                 <h2 class="text-primary">Sukurti naują prekę</h2>
@@ -24,7 +24,7 @@
                     Pavadinimas
                 </div>
                 <div class="col-8">
-                    <input class="form-control" />
+                    <input oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Reikalingas pavadinimas')" class="form-control" name="Name" required/>
                 </div>
 
             </div>
@@ -34,7 +34,7 @@
                     Aprašymas
                 </div>
                 <div class="col-8">
-                    <input class="form-control" />
+                    <input oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Reikalingas aprašymas')" class="form-control" name="Description" required/>
 
                 </div>
             </div>
@@ -43,7 +43,7 @@
                     Kaina
                 </div>
                 <div class="col-8">
-                    <input class="form-control" />
+                    <input oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Reikalinga kaina')" class="form-control" name="Price" required/>
 
                 </div>
             </div>
@@ -53,25 +53,26 @@
                     Svoris
                 </div>
                 <div class="col-8">
-                    <input class="form-control" />
+                    <input oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Reikalingas svoris')" class="form-control" name="Weight" required/>
 
                 </div>
             </div>
-
+            <input type="hidden" name="Imageqrew"/>
             <div class="form-group row">
                 <div class="col-4">
-                    Paveikslėlis
+                    Nuotrauka
                 </div>
                 <div class="col-8">
-                    <input type="file" name="Paveikslėlis" id="uploadBox" class="form-control" />
+                    <input oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Reikalinga nuotrauka')" required type="file" name="ImageFile" id="uploadBox" class="form-control" />
                 </div>
                 <button type="submit" class="btn btn-primary" style="width:150px">Sukurti</button>
                 <a asp-action="Index" class="btn btn-secondary" style="width:150px">Atgal</a>
+            </div>
             </div>
 </form>
 
 
 
 </body>
-
+ 
 </html>
